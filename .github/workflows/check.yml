@@ -173,9 +173,9 @@ jobs:
         uses: actions/dependency-review-action@v3
 
   deploy-into-sandbox:
-    if: false # Skip by default. 
     needs: [ dependency-review, actionlint, phpstan-linter, pint, scan-for-secrets, shellcheck, test, conventional-commits ]
-    if: ${{ github.head_ref == 'release-please--branches--main' }}
+    if: false
+    # if: ${{ github.head_ref == 'release-please--branches--main' }}
     uses: ./.github/workflows/deploy.yml
     secrets: inherit
     with:
